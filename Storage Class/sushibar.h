@@ -11,14 +11,20 @@ class SushiBar {
 
     private:
         Sushi *sushi;
-        double tab;
-        double tax;
-        double total;
+        float tab;
+        float tax;
+        float total;
 
     public:
         void loadSushi(ifstream&);
         Sushi getSushi(int);
-        void updateTab();
+        double getTab;
+        
+        void setTab(float);
+        void setTax(float);
+        void updateTab(int); //the int needs to be the index of the sushi, not the price
+
+
 
         SushiBar () {
             this->sushi = NULL;

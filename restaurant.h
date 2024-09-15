@@ -5,8 +5,8 @@
 #ifndef RESTAURANT_H
 #define RESTAURANT_H
 
-#include "sushi.h"
-#include "sushibar.h"
+#include "Data Classes/sushi.h"
+#include "Storage Class/sushibar.h"
 
 #include <iostream>
 #include <iomanip>
