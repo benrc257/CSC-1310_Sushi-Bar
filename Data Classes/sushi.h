@@ -1,5 +1,5 @@
 /*
-    Header for daughter/data class
+    Header for daughter sushi class
 */
 
 #ifndef SUSHI_H

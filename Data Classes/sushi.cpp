@@ -1,5 +1,5 @@
 /*
-    File for daughter/data class
+    File for daughter sushi class
 */
 
 #include "sushi.h"
