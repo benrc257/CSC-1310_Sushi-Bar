@@ -6,12 +6,14 @@
 #define RESTAURANT_H
 
 #include "Data Classes/sushi.h"
+#include "Data Classes/menu.h"
 #include "Storage Class/sushibar.h"
 
 #include <iostream>
 #include <iomanip>
 #include <cctype>
 #include <ctime>
+#include <fstream>
 using namespace std;
 
 //global constants

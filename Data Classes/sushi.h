@@ -1,5 +1,5 @@
 /*
-    Header for daughter/data class
+    Header for daughter sushi class
 */
 
 #ifndef SUSHI_H
@@ -47,6 +47,11 @@ class Sushi {
             this->cost = 0.00;
             this->ingredients = new string[1];
             this->rarity = "";
+        }
+
+        //destructor
+        ~Sushi() {
+            delete [] ingredients;
         }
         
     };
