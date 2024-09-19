@@ -30,7 +30,7 @@ class SushiBar {
 
 
         SushiBar () {
-           // this->sushi = NULL;
+            this->sushi = NULL;
             this->tab = 0.0;
             this->tax = 0.0;
             this->total = 0.0;
