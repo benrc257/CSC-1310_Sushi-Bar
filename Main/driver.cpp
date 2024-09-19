@@ -8,10 +8,44 @@
 #include "../restaurant.h"
 
 int main() {
-
+    //variables
+    SushiBar sushiBar = {};
+    Menu menu = {};
+    Sushi* currentSushi = NULL;
+    int highScore = 0;
+    char choice;
+    time_t seed;
     
-    Menu menu("menu.csv");
-    SushiBar sushiBar(menu);
+    cout << "\n\n##### WELCOME TO THE SUSHI BAR #####";
+         << "\nYou will be shown a selection of sushi,"
+         << "\nserved to you on a conveyor belt. You"
+         << "\nmay select up to " << CHOICES << "sushi, each"
+         << "\nwith a different rarity and price. You"
+         << "\nwill only shown " << REROLLS << "sushi. Choose wisely!"
+         << "\n####################################\n";
+
+    cout << "\nPRESS ENTER TO BEGIN";
+    cin >> choice;
+    cin.clear();
+    cin.ignore(10000,"\n");
+
+    for (int i = 0; i < REROLLS; i++) { // this loop controls the number of rerolls
+
+        //spinning message + delay
+        cout << "\nSPINNING";
+        for (int j = 0; j < 3; j++) {
+            delay(1);
+            cout << ".";
+        }
+        cout << "\n";
+
+        // generate random number and pass it to select sushi
+        currentSushi = SushiBar.selectSushi(randnum());
+
+
+    }
+
+
     
 
     
