@@ -36,7 +36,7 @@ class Menu {
 
         //constructor
         Menu() { //default constructor
-            openFile(FILENAME);
+            openFile();
             readFile();
         }
 
