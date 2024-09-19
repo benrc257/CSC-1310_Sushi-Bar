@@ -1,5 +1,5 @@
 # TO COMPILE WITH MAKEFILE ON WINDOWS, DO "mingw32-make Makefile.mak all"
-# IF ON MAC, USE ""
+# IF ON MAC, USE "make Makefile.mak all"
 # IF ON LINUX, USE "make Makefile.mak all"
 
 # file names
