@@ -14,13 +14,17 @@ class SushiBar {
         float tab;
         float tax;
         float total;
+        int numSushi;
 
     public:
         //getters
+        int getNumSushi();
         float getTab();
         Sushi getSushi(int index);
+
         
         //setters
+        void setNumSushi(int numSushi);
         void loadSushi(Menu &menu);
         void setTab(float tab);
         void setTax(float tax);
@@ -34,6 +38,7 @@ class SushiBar {
             this->tax = 0.0;
             this->total = 0.0;
         }
+
 
         ~SushiBar (){
             delete [] this->sushi;
