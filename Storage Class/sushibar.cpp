@@ -6,8 +6,9 @@
 
 using namespace std;
 
- void SushiBar::loadSushi(ifstream&){
+ void SushiBar::loadSushi(Menu menu){
 
-    
+    this->sushi = new Sushi[menu.getNumSushi()];
+
 
 };

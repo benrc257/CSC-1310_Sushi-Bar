@@ -25,6 +25,7 @@ class Menu {
         void readFile();
 
         //getters
+        int getNumSushi();
         int* getCostArray();
         int* getSizeArray();
         string* getNameArray();
