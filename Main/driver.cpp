@@ -5,7 +5,7 @@
     Description: This program simulates a sushibar with a conveyor belt that sends random dishes with sushi out to the customer.
 */
 
-#include "restaurant.h"
+#include "../restaurant.h"
 
 int main() {
 

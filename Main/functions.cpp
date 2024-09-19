@@ -2,7 +2,7 @@
     File for helper functions
 */
 
-#include "restaurant.h"
+#include "../restaurant.h"
 
 void delay(int delay) {
     //variables
