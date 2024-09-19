@@ -21,4 +21,8 @@ const float TAX = 0.095;
 const int REROLLS = 25; //the number of rerolls the user gets
 const int CHOICES = 5; //the number of sushi the user can select 
 
+//driver functions
+void delay(int);
+int randnum(int, int);
+
 #endif

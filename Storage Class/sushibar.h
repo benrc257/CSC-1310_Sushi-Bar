@@ -18,13 +18,15 @@ class SushiBar {
     public:
         //getters
         float getTab();
+        float getTax(); // this need to be implemeted
+        float getTotal(); // this need to be implemeted
         Sushi getSushi(int index);
         
         //setters
         void loadSushi(Menu &menu);
         void setTab(float tab);
         void setTax(float tax);
-        void updateTab(int indexOfSushi); //the int needs to be the index of the sushi, not the price
+        void updateTab(int indexOfSushi); // the int needs to be the index of the sushi, not the price
 
 
 

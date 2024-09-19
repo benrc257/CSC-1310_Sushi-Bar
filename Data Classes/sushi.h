@@ -12,6 +12,7 @@ class Sushi {
     private:
         float cost;
         string* ingredients;
+        string name; //this needs to be added to the constructors
         string rarity;
 
     public:
@@ -25,6 +26,7 @@ class Sushi {
         string* getIngredients();
         string getIngredient(int);
         string getRarity();
+        string getName();
 
         //constructors
         Sushi(float cost, int ingredientsSize, string* ingredients, string rarity) { //overloaded constructor with ingredients
