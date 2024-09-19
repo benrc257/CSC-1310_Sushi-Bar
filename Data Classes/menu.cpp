@@ -4,10 +4,14 @@
 
 #include "menu.h"
 
+
 void Menu::openFile() {
     this->file.open(FILENAME);
-}
+};
 
+void Menu::openFile(string fileName) {
+    this->file.open(fileName);
+};
 
 void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
     string text, line, counter;
@@ -21,7 +25,8 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
         line = line.substr(end+4);
         arrayLength++;
     }
-
+    
+    this->numSushi = arrayLength;
     this->cost = new int[arrayLength];
     this->ingredientsSize = new int[arrayLength];
     this->sushiname = new string[arrayLength];
@@ -56,7 +61,7 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
 
         start = end+4;
     }
-
+    file.close();
 }
 
 
