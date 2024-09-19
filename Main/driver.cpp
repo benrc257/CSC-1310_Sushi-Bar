@@ -9,9 +9,9 @@
 
 int main() {
 
-    SushiBar sushiBar;
-    Menu menu("menu.csv");
     
+    Menu menu("menu.csv");
+    SushiBar sushiBar(menu);
 
     
     return 0;

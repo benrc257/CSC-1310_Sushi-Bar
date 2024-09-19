@@ -6,9 +6,15 @@
 
 using namespace std;
 
- void SushiBar::loadSushi(Menu menu){
+ void SushiBar::loadSushi(Menu &menu){
 
-    this->sushi = new Sushi[menu.getNumSushi()];
+    int numSushi = menu.getNumSushi();
+    this->sushi = new Sushi[numSushi];
+    for (int i = 0; i < numSushi; i++)
+    {
+        sushi[i] = Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i]);
+    }
+    
 
 
 };
