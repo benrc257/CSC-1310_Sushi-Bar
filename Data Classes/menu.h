@@ -35,12 +35,15 @@ class Menu {
         
 
         //constructor
-        Menu(string input){
+        Menu() {
+            openFile(FILENAME);
+            readFile();
+        }
+
+        Menu(string input) {
             openFile(input);
             readFile();
         };
-
-        Menu();
 
         //destructors
         ~Menu() {
