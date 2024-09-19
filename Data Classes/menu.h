@@ -12,6 +12,7 @@ const string FILENAME = "menu.csv";
 class Menu {
     private:
         ifstream file;
+        int numSushi;
         int* cost;
         int* ingredientsSize;
         string* sushiname;
@@ -20,13 +21,26 @@ class Menu {
 
     public:
         void openFile();
+        void openFile(string fileName);
         void readFile();
 
+        //getters
         int* getCostArray();
         int* getSizeArray();
         string* getNameArray();
         string* getRarityArray();
         string** getIngredientsArray();
+
+        //setters
+        
+
+        //constructor
+        Menu(string input){
+            openFile(input);
+            readFile();
+        };
+
+        Menu();
 
         //destructors
         ~Menu() {

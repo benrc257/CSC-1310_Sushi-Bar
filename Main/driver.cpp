@@ -9,6 +9,10 @@
 
 int main() {
 
+    SushiBar sushiBar;
+    Menu menu("menu.csv");
+    
 
+    
     return 0;
 }
