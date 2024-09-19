@@ -10,7 +10,7 @@
 class SushiBar {
 
     private:
-        Sushi *sushi;
+        Sushi **sushi;
         float tab;
         float tax;
         float total;
@@ -43,6 +43,10 @@ class SushiBar {
 
 
         ~SushiBar (){
+            for (int i = 0; i < numSushi ; ++i)
+            {
+                delete [] this-> sushi[i];
+            } 
             delete [] this->sushi;
         }
 

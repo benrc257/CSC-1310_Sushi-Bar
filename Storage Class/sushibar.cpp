@@ -6,15 +6,15 @@
 
 using namespace std;
 
- void SushiBar::loadSushi(Menu &menu){
+void SushiBar::loadSushi(Menu &menu){
     int numSushi = menu.getNumSushi();
     setNumSushi(numSushi);
 
-    this->sushi = new Sushi[numSushi];
+    this->sushi = new Sushi*[numSushi]; 
     for (int i = 0; i < numSushi; i++)
     {
         //construct a sushi using info from menu
-        sushi[i] = Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i]);
+        sushi[i] = new Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i]);
     }
 };
 
@@ -33,7 +33,11 @@ void SushiBar::setTax(float tax){
 };
 
 void SushiBar::updateTab(int indexOfSushi){
-    this->tab -= this->sushi[indexOfSushi].getCost();
+    float cost;
+    cost = (*this->sushi)[indexOfSushi].getCost();
+    this->tab += cost;
+    this->tax += (cost*TAX);
+    this->total += (cost+(cost*TAX));
 };
 
 // getters
@@ -46,7 +50,15 @@ float SushiBar::getTab(){
     return this->tab;
 };
 
+float SushiBar::getTax() {
+    return this->tax;
+}
+
+float SushiBar::getTotal() {
+    return this->total;
+}
+
 Sushi SushiBar::getSushi(int index){
-    return this->sushi[index];
+    return *this->sushi[index];
 };
 

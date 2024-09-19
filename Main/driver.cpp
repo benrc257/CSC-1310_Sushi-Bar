@@ -1,6 +1,6 @@
 /*
     Main function
-    Authors: Alec Szczechowicz, Benjamin Clark, Silas ---, Lucas Starkey
+    Authors: Alec Szczechowicz, Benjamin Clark, Silas Garmon, Lucas Starkey
     Date: 9/12/2024
     Description: This program simulates a Sushi Bar with a conveyor belt that sends random dishes with sushi out to the customer.
 */

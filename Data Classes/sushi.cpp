@@ -11,11 +11,6 @@ Sushi* createSushi (float cost, int ingredientsSize, string* ingredients, string
     return sushi;
 }
 
-//Sushi function that will take user input on menu selection
-Sushi selectSushi () {
-
-}
-
 
 
 /*
@@ -40,6 +35,11 @@ void Sushi::setIngredients(string* ingredients) {
 void Sushi::setRarity(string) {
     this->rarity = rarity;
 }
+
+//Getters 
+string Sushi::getName(){
+    return this->name;
+};
 
 //Gets the price of the sushi
 float Sushi::getCost() {
