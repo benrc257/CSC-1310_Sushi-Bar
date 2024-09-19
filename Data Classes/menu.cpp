@@ -65,6 +65,10 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
 }
 
 
+int Menu::getNumSushi(){
+    return this->numSushi;
+};
+
 int* Menu::getCostArray() {
     return this->cost;
 }
