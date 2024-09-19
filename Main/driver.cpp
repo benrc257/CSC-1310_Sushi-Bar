@@ -6,11 +6,12 @@
 */
 
 #include "../restaurant.h"
+#include "../Storage/sushibar.h"
 
 int main() {
     //variables
-    Menu menu = {};
-    SushiBar sushiBar = {menu};
+    Menu menu;
+    SushiBar sushiBar(menu);
     Sushi* currentSushi = NULL;
     int highScore = 0, choicesLeft;
     char choice;
@@ -42,7 +43,7 @@ int main() {
             cout << "\n";
 
             // generates random number between 0 and max # of sushi and passes it to getSushi()
-            currentSushi = &sushiBar.getSushi(randnum(0, menu.getNumSushi()));
+            currentSushi = sushiBar.getSushi(randnum(0, sushiBar.getNumSushi()));
 
             // prints sushi to screen
             cout << (*currentSushi).getRarity() << "\n"

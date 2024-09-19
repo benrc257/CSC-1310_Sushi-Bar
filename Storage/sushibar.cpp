@@ -14,7 +14,7 @@ void SushiBar::loadSushi(Menu &menu){
     for (int i = 0; i < numSushi; i++)
     {
         //construct a sushi using info from menu
-        sushi[i] = new Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i]);
+        sushi[i] = new Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i],menu.getNameArray()[i]);
     }
 };
 
@@ -58,7 +58,7 @@ float SushiBar::getTotal() {
     return this->total;
 }
 
-Sushi SushiBar::getSushi(int index){
-    return *this->sushi[index];
+Sushi* SushiBar::getSushi(int index){
+    return this->sushi[index];
 };
 

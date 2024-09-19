@@ -12,7 +12,7 @@ class Sushi {
     private:
         float cost;
         string* ingredients;
-        string name; //this needs to be added to the constructors
+        string name;
         string rarity;
 
     public:
@@ -29,7 +29,8 @@ class Sushi {
         string getName();
 
         //constructors
-        Sushi(float cost, int ingredientsSize, string* ingredients, string rarity) { //overloaded constructor with ingredients
+        Sushi(float cost, int ingredientsSize, string* ingredients, string rarity, string name) { //overloaded constructor with ingredients
+            this->name = name;
             this->cost = cost;
             this->ingredients = new string[ingredientsSize];
             this->rarity = rarity;
@@ -39,13 +40,15 @@ class Sushi {
             }
         }
 
-        Sushi(float cost, int ingredientsSize, string rarity) { //overloaded constructor
+        Sushi(float cost, int ingredientsSize, string rarity, string name) { //overloaded constructor
+            this->name = name;
             this->cost = cost;
             this->ingredients = new string[ingredientsSize];
             this->rarity = rarity;
         }
 
         Sushi() { //default constructor
+            this->name = "";
             this->cost = 0.00;
             this->ingredients = new string[1];
             this->rarity = "";

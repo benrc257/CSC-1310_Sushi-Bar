@@ -6,6 +6,8 @@
 #define SUSHIBAR_H
 
 #include "../restaurant.h"
+#include "../Data/sushi.h"
+#include "../Data/menu.h"
 
 class SushiBar {
 
@@ -22,7 +24,7 @@ class SushiBar {
         float getTab();
         float getTax(); // this need to be implemeted
         float getTotal(); // this need to be implemeted
-        Sushi getSushi(int index);
+        Sushi* getSushi(int index);
 
         
         //setters
@@ -35,6 +37,7 @@ class SushiBar {
 
 
         SushiBar (Menu &menu) {
+            this->numSushi = menu.getNumSushi();
             loadSushi(menu);
             this->tab = 0.0;
             this->tax = 0.0;
