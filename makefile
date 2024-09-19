@@ -1,6 +1,5 @@
-# TO COMPILE WITH MAKEFILE ON WINDOWS, DO "mingw32-make Makefile.mak all"
-# IF ON MAC, USE ""
-# IF ON LINUX, USE "make Makefile.mak all"
+# TO COMPILE WITH MAKEFILE ON WINDOWS, DO "mingw32-make"
+# IF ON MAC OR LINUX, USE "make"
 
 # file names
 functions := Main/functions.cpp
