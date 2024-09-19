@@ -14,27 +14,32 @@ class SushiBar {
         float tab;
         float tax;
         float total;
-        float Tab;
 
     public:
         //getters
         float getTab();
-        Sushi getSushi(int);
+        Sushi getSushi(int index);
         
         //setters
-        void loadSushi(Menu);
-        void setTab(float);
-        void setTax(float);
+        void loadSushi(Menu &menu);
+        void setTab(float tab);
+        void setTax(float tax);
         void updateTab(int indexOfSushi); //the int needs to be the index of the sushi, not the price
 
 
 
-        SushiBar () {
-            this->sushi = NULL;
+        SushiBar (Menu &menu) {
+            loadSushi(menu);
             this->tab = 0.0;
             this->tax = 0.0;
             this->total = 0.0;
         }
+
+        ~SushiBar (){
+            delete [] this->sushi;
+        }
+
+ 
 };
 
 #endif
