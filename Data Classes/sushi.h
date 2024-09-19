@@ -5,7 +5,7 @@
 #ifndef SUSHI_H
 #define SUSHI_H
 
-#include "restaurant.h"
+#include "../restaurant.h"
 
 //Class that defines Sushi and its ingredients
 class Sushi {

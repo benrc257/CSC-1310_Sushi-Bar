@@ -5,7 +5,7 @@
 #ifndef SUSHIBAR_H
 #define SUSHIBAR_H
 
-#include "restaurant.h"
+#include "../restaurant.h"
 
 class SushiBar {
 

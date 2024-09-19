@@ -5,7 +5,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "restaurant.h"
+#include "../restaurant.h"
 
 const string FILENAME = "menu.csv";
 
