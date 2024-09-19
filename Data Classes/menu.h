@@ -35,12 +35,12 @@ class Menu {
         
 
         //constructor
-        Menu() {
+        Menu() { //default constructor
             openFile(FILENAME);
             readFile();
         }
 
-        Menu(string input) {
+        Menu(string input) { //with filename input
             openFile(input);
             readFile();
         };
