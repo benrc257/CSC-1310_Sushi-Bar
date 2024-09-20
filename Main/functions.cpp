@@ -15,9 +15,9 @@ void delay(int delay) {
     while (time(0) < timer);
 }
 
-int randnum(int low, int high) {
-    srand(time(0));
-    return rand()%(high-low+1)+low;
+int randnum(int max) {
+    int random = rand()%(max);
+    return random;
 }
 
 

@@ -28,7 +28,7 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
     }
     
     this->numSushi = arrayLength;
-    this->cost = new int[arrayLength];
+    this->cost = new float[arrayLength];
     this->ingredientsSize = new int[arrayLength];
     this->sushiname = new string[arrayLength];
     this->rarity = new string[arrayLength];
@@ -76,7 +76,7 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
         readend = line.find(",", 0);
 
         this->ingredients[i] = new string[this->ingredientsSize[i]];
-        for (int j = 0; j < this->ingredientsSize[i] && readend != string::npos; j++) {
+        for (int j = 0; j < this->ingredientsSize[i]; j++) {
             this->ingredients[i][j] = line.substr(0, readend);
             line = line.substr(readend+1);
             readend = line.find(",", 0);
@@ -92,7 +92,7 @@ int Menu::getNumSushi(){
     return this->numSushi;
 };
 
-int* Menu::getCostArray() {
+float* Menu::getCostArray() {
     return this->cost;
 }
 

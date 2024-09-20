@@ -9,12 +9,20 @@ using namespace std;
 void SushiBar::loadSushi(Menu &menu){
     int numSushi = menu.getNumSushi();
     setNumSushi(numSushi);
+    float* costArray = menu.getCostArray();
+    int* sizeArray =  menu.getSizeArray();
+    string** ingredientsArray = menu.getIngredientsArray();
+    string* rarityArray = menu.getRarityArray();
+    string* nameArray = menu.getNameArray();
+
+
+
 
     this->sushi = new Sushi*[numSushi]; 
     for (int i = 0; i < numSushi; i++)
     {
         //construct a sushi using info from menu
-        sushi[i] = new Sushi(menu.getCostArray()[i],menu.getSizeArray()[i],menu.getIngredientsArray()[i],menu.getRarityArray()[i],menu.getNameArray()[i]);
+        sushi[i] = new Sushi(costArray[i], sizeArray[i], ingredientsArray[i], rarityArray[i], nameArray[i]);
     }
 };
 
@@ -32,9 +40,7 @@ void SushiBar::setTax(float tax){
     this->tax = tax;
 };
 
-void SushiBar::updateTab(int indexOfSushi){
-    float cost;
-    cost = (*this->sushi)[indexOfSushi].getCost();
+void SushiBar::updateTab(float cost){
     this->tab += cost;
     this->tax += (cost*TAX);
     this->total += (cost+(cost*TAX));

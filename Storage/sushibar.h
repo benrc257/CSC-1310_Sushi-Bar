@@ -32,7 +32,7 @@ class SushiBar {
         void loadSushi(Menu &menu);
         void setTab(float tab);
         void setTax(float tax);
-        void updateTab(int indexOfSushi); // the int needs to be the index of the sushi, not the price
+        void updateTab(float cost);
 
 
 

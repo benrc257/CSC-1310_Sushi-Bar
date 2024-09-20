@@ -20,6 +20,6 @@ const int CHOICES = 5; //the number of sushi the user can select
 
 //driver functions
 void delay(int);
-int randnum(int, int);
+int randnum(int);
 
 #endif

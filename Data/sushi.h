@@ -37,7 +37,7 @@ class Sushi {
             this->ingredients = new string[ingredientsSize];
             this->rarity = rarity;
 
-            for (int i = 0; i < ingredientsSize && i < (*ingredients).size(); i++) {
+            for (int i = 0; i < ingredientsSize; i++) {
                 this->ingredients[i] = ingredients[i];
             }
         }

@@ -13,7 +13,7 @@ class Menu {
     private:
         ifstream file;
         int numSushi;
-        int* cost;
+        float* cost;
         int* ingredientsSize;
         string* sushiname;
         string* rarity;
@@ -26,7 +26,7 @@ class Menu {
 
         //getters
         int getNumSushi();
-        int* getCostArray();
+        float* getCostArray();
         int* getSizeArray();
         string* getNameArray();
         string* getRarityArray();
