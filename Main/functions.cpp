@@ -16,9 +16,8 @@ void delay(int delay) {
 }
 
 int randnum(int low, int high) {
-    
+    srand(time(0));
     return rand()%(high-low+1)+low;
-
 }
 
 

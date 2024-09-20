@@ -11,6 +11,7 @@
 class Sushi {
     private:
         float cost;
+        int ingredientsSize;
         string* ingredients;
         string name;
         string rarity;
@@ -32,6 +33,7 @@ class Sushi {
         Sushi(float cost, int ingredientsSize, string* ingredients, string rarity, string name) { //overloaded constructor with ingredients
             this->name = name;
             this->cost = cost;
+            this->ingredientsSize = ingredientsSize;
             this->ingredients = new string[ingredientsSize];
             this->rarity = rarity;
 

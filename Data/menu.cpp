@@ -15,11 +15,12 @@ void Menu::openFile(string fileName) {
 
 void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
     string text, line, counter;
-    size_t start = 4, end, readstart, readend, arrayLength = 0; //size_t used becaused of substr and find
+    size_t end, readend, arrayLength = 0; //size_t used becaused of substr and find
 
     getline(this->file, text);
 
     line = text;
+    cout << endl << text << endl;
     while (line.find("new") != string::npos) {
         end = line.find("new");
         line = line.substr(end+4);
@@ -33,33 +34,55 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
     this->rarity = new string[arrayLength];
     this->ingredients = new string*[arrayLength];
 
-
+    text = text.substr(4);
     for (int i = 0; i < arrayLength; i++) {
-        end = text.find("new", start);
-        line = text.substr(start, end);
-        readstart = 0;
+        end = text.find(",new");
+        if (end != string::npos) {
+            line = text.substr(0, end);
+        } else {
+            line = text.substr(0);
+        }
+        
+        cout << line << endl; //remove
         readend = line.find(",");
 
-        this->sushiname[i] = line.substr(readstart, readend);
-        readstart = readend+1;
-        readend = line.find(",", readstart);
+        this->sushiname[i] = line.substr(0, readend);
+        line = line.substr(readend+1);
+        readend = line.find(",", 0);
 
-        this->rarity[i] = line.substr(readstart, readend);
-        readstart = readend+1;
-        readend = line.find(",", readstart);
+        this->rarity[i] = line.substr(0, readend);
+        line = line.substr(readend+1);
+        readend = line.find(",", 0);
 
-        this->ingredientsSize[i] = stoi(line.substr(readstart, readend));
-        readstart = readend+1;
-        readend = line.find(",", readstart);
+        if (this->rarity[i] == "poor") {
+            this->rarity[i] = "POOR";
+            this->cost[i] = 1.00;
+        } else if (this->rarity[i] == "common") {
+            this->rarity[i] = "COMMON";
+            this->cost[i] = 3.00;
+        } else if (this->rarity[i] == "uncommon") {
+            this->rarity[i] = "UNCOMMON";
+            this->cost[i] = 5.00;
+        } else if (this->rarity[i] == "rare") {
+            this->rarity[i] = "RARE";
+            this->cost[i] = 10.00;
+        } else if (this->rarity[i] == "legendary") {
+            this->rarity[i] = "LEGENDARY";
+            this->cost[i] = 100.00;
+        }
+
+        this->ingredientsSize[i] = stoi(line.substr(0, readend));
+        line = line.substr(readend+1);
+        readend = line.find(",", 0);
 
         this->ingredients[i] = new string[this->ingredientsSize[i]];
         for (int j = 0; j < this->ingredientsSize[i] && readend != string::npos; j++) {
-            this->ingredients[i][j] = line.substr(readstart, readend);
-            readstart = readend+1;
-            readend = line.find(",", readstart);
+            this->ingredients[i][j] = line.substr(0, readend);
+            line = line.substr(readend+1);
+            readend = line.find(",", 0);
         }
 
-        start = end+4;
+        text = text.substr(end+5);
     }
     file.close();
 }

@@ -49,7 +49,7 @@ float Sushi::getCost() {
 
 //Gets the size of the ingredients array
 int Sushi::getIngredientsSize() {
-    return (*this->ingredients).size();
+    return this->ingredientsSize;
 }
 
 //Gets the contents of the ingredients array

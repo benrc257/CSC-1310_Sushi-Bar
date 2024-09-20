@@ -20,15 +20,14 @@ int main() {
     cout << "\n\n##### WELCOME TO THE SUSHI BAR #####"
          << "\nYou will be shown a selection of sushi,"
          << "\nserved to you on a conveyor belt. You"
-         << "\nmay select up to " << CHOICES << "sushi, each"
+         << "\nmay select up to " << CHOICES << " sushi, each"
          << "\nwith a different rarity and price. You"
-         << "\nwill only shown " << REROLLS << "sushi. Choose wisely!"
+         << "\nwill only shown " << REROLLS << " sushi. Choose wisely!"
          << "\n####################################\n";
 
     cout << "\nPRESS ENTER TO BEGIN";
-    cin >> choice;
+    cin.ignore(10000, '\n');
     cin.clear();
-    cin.ignore(10000,'\n');
 
     do {
         choicesLeft = CHOICES;
@@ -40,27 +39,28 @@ int main() {
                 delay(1);
                 cout << ".";
             }
-            cout << "\n";
+            cout << "\n\n";
 
             // generates random number between 0 and max # of sushi and passes it to getSushi()
             currentSushi = sushiBar.getSushi(randnum(0, sushiBar.getNumSushi()));
 
             // prints sushi to screen
-            cout << (*currentSushi).getRarity() << "\n"
-                << (*currentSushi).getName() << "\n"
+            cout << currentSushi->getRarity() << "\n"
+                << currentSushi->getName() << "\n"
                 << "INGREDIENTS:\n";
 
-            for (int j = 0; j < (*currentSushi).getIngredientsSize(); j++) { // prints each ingredient
-                cout << j+1 << ". \t" << (*currentSushi).getIngredient(j) << "\n";
+            for (int j = 0; j < currentSushi->getIngredientsSize(); j++) { // prints each ingredient
+                cout << j+1 << ". \t" << currentSushi->getIngredient(j) << "\n";
             }
 
-            cout << "PRICE: " << (*currentSushi).getCost() << "\n\n";
+            cout << fixed << setprecision(2) << showpoint;
+            cout << "PRICE: " << currentSushi->getCost() << "\n\n";
 
             // asks the user if they would like to take the sushi
             cout << "You have " << choicesLeft << " choices remaining.\n"
                 << "Take this sushi? (Y/N) >> ";
             
-            while (cin >> choice || (toupper(choice) != 'N' || toupper(choice) != 'Y')) {
+            while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
                 cout << "\nInvalid choice. Please enter Y or N. >> ";
                 cin.clear();
                 cin.ignore(10000, '\n');
@@ -68,9 +68,9 @@ int main() {
 
             if (toupper(choice) == 'Y') {
                 choicesLeft--;
-                cout << "\nYou took \"" << (*currentSushi).getName() << "\" off the conveyor!\n";
+                cout << "\nYou took \"" << currentSushi->getName() << "\" off the conveyor!\n";
             } else {
-                cout << "\nYou took \"" << (*currentSushi).getName() << "\" off the conveyor!\n";
+                cout << "\nYou took \"" << currentSushi->getName() << "\" off the conveyor!\n";
             }
 
             if (choicesLeft < 1) {
@@ -92,7 +92,7 @@ int main() {
         
         // asking the user if they would like to play again
         cout << "\nPlay again? (Y/N) >> ";
-        while (cin >> choice || (toupper(choice) != 'N' || toupper(choice) != 'Y')) {
+        while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
             cout << "\nInvalid choice. Please enter Y or N. >> ";
             cin.clear();
             cin.ignore(10000, '\n');
