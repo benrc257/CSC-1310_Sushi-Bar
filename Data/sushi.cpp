@@ -33,7 +33,7 @@ void Sushi::setIngredients(string* ingredients) {
 }
 
 //Sets the rarity of the sushi
-void Sushi::setRarity(string) {
+void Sushi::setRarity(string rarity) {
     this->rarity = rarity;
 }
 

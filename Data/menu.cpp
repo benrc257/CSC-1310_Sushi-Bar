@@ -13,14 +13,13 @@ void Menu::openFile(string fileName) {
     this->file.open(fileName);
 };
 
-void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
+void Menu::readFile() { 
     string text, line, counter;
     size_t end, readend, arrayLength = 0; //size_t used becaused of substr and find
 
     getline(this->file, text);
 
     line = text;
-    cout << endl << text << endl;
     while (line.find("new") != string::npos) {
         end = line.find("new");
         line = line.substr(end+4);
@@ -43,7 +42,6 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
             line = text.substr(0);
         }
         
-        cout << line << endl; //remove
         readend = line.find(",");
 
         this->sushiname[i] = line.substr(0, readend);
