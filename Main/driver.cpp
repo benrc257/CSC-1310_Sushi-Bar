@@ -46,7 +46,7 @@ int main() {
 
             // generates random number between 0 and max index of sushi and passes it to getSushi()
             currentSushi = sushiBar.getSushi(randnum(sushiBar.getNumSushi()-1));
-
+            
             // prints sushi to screen
             cout << currentSushi->getRarity() << "\n"
                 << currentSushi->getName() << "\n"

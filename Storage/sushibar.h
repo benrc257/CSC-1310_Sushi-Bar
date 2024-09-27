@@ -22,10 +22,9 @@ class SushiBar {
         //getters
         int getNumSushi();
         float getTab();
-        float getTax(); // this need to be implemeted
-        float getTotal(); // this need to be implemeted
+        float getTax();
+        float getTotal();
         Sushi* getSushi(int index);
-
         
         //setters
         void setNumSushi(int numSushi);
@@ -48,7 +47,7 @@ class SushiBar {
         ~SushiBar (){
             for (int i = 0; i < numSushi ; ++i)
             {
-                delete [] this-> sushi[i];
+                delete [] this->sushi[i];
             } 
             delete [] this->sushi;
         }

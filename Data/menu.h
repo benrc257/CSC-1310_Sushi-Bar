@@ -31,8 +31,6 @@ class Menu {
         string* getNameArray();
         string* getRarityArray();
         string** getIngredientsArray();
-
-        //setters
         
 
         //constructor

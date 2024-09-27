@@ -58,7 +58,7 @@ class Sushi {
 
         //destructor
         ~Sushi() {
-            delete [] ingredients;
+            delete [] this->ingredients;
         }
         
     };

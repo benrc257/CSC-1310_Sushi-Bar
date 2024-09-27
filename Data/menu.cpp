@@ -82,6 +82,7 @@ void Menu::readFile() {
 
         text = text.substr(end+5);
     }
+    
     file.close();
 }
 
