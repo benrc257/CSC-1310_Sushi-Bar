@@ -5,20 +5,23 @@
 #include "menu.h"
 
 
-void Menu::openFile() {
+void Menu::openFile() { //opens file using global filename
     this->file.open(FILENAME);
 };
 
-void Menu::openFile(string fileName) {
+void Menu::openFile(string fileName) { //opens file using passed filename
     this->file.open(fileName);
 };
 
-void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
+void Menu::readFile() { 
+    //variables
     string text, line, counter;
     size_t end, readend, arrayLength = 0; //size_t used becaused of substr and find
 
+    //text from file
     getline(this->file, text);
 
+    //counts number of sushi by counting new
     line = text;
     cout << endl << text << endl;
     while (line.find("new") != string::npos) {
@@ -27,6 +30,7 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
         arrayLength++;
     }
     
+    //assigns variables and array sizes of menu based on number of sushi
     this->numSushi = arrayLength;
     this->cost = new float[arrayLength];
     this->ingredientsSize = new int[arrayLength];
@@ -34,7 +38,10 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
     this->rarity = new string[arrayLength];
     this->ingredients = new string*[arrayLength];
 
+    //removes the first instance of "new,"
     text = text.substr(4);
+
+    //extracts each attribute of each sushi, using arrayLength as the number of total sushi
     for (int i = 0; i < arrayLength; i++) {
         end = text.find(",new");
         if (end != string::npos) {
@@ -54,6 +61,7 @@ void Menu::readFile() { //THIS HASNT BEEN TESTED IDK IF IT WORKS
         line = line.substr(readend+1);
         readend = line.find(",", 0);
 
+        //detects rarity in file and capitalizes it, then assigns a price
         if (this->rarity[i] == "poor") {
             this->rarity[i] = "POOR";
             this->cost[i] = 1.00;

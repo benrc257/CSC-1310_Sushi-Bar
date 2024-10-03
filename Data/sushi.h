@@ -18,10 +18,12 @@ class Sushi {
 
     public:
         //member functions
+        //setters
         void setCost(float);
         void setIngredients(string*);
         void setRarity(string);
 
+        //getters
         float getCost();
         int getIngredientsSize();
         string* getIngredients();
@@ -63,8 +65,6 @@ class Sushi {
         
     };
 
-
-Sushi* createSushi(float, int, string*, string); //cost, size of ingredients array, ingredients array, rarity
 Sushi selectSushi();
 
 #endif

@@ -10,20 +10,20 @@
 #include "../Data/menu.h"
 
 class SushiBar {
-
+    //Private Variables --------------------------------
     private:
         Sushi **sushi;
         float tab;
         float tax;
         float total;
         int numSushi;
-
+    //public which stores the getters setters and constructors:
     public:
         //getters
         int getNumSushi();
         float getTab();
-        float getTax(); // this need to be implemeted
-        float getTotal(); // this need to be implemeted
+        float getTax(); 
+        float getTotal(); 
         Sushi* getSushi(int index);
 
         
@@ -36,7 +36,7 @@ class SushiBar {
 
 
 
-        SushiBar (Menu &menu) {
+        SushiBar (Menu &menu) { //overloaded constructor
             this->numSushi = menu.getNumSushi();
             loadSushi(menu);
             this->tab = 0.0;
@@ -45,7 +45,7 @@ class SushiBar {
         }
 
 
-        ~SushiBar (){
+        ~SushiBar (){ //destructor
             for (int i = 0; i < numSushi ; ++i)
             {
                 delete [] this-> sushi[i];

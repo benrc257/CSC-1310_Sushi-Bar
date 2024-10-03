@@ -9,11 +9,11 @@ using namespace std;
 void SushiBar::loadSushi(Menu &menu){
     int numSushi = menu.getNumSushi();
     setNumSushi(numSushi);
-    float* costArray = menu.getCostArray();
-    int* sizeArray =  menu.getSizeArray();
-    string** ingredientsArray = menu.getIngredientsArray();
-    string* rarityArray = menu.getRarityArray();
-    string* nameArray = menu.getNameArray();
+    float* costArray = menu.getCostArray(); // get cost from costArray
+    int* sizeArray =  menu.getSizeArray();  // Gets the size of the dish being offered.
+    string** ingredientsArray = menu.getIngredientsArray(); // Gets the ingredients for every sushi dish.
+    string* rarityArray = menu.getRarityArray();    //Gets the rarity for every dish generated.
+    string* nameArray = menu.getNameArray();    //Gets the name for every dish.
 
 
 
@@ -31,7 +31,7 @@ void SushiBar::setNumSushi(int numSushi){
     this->numSushi = numSushi;
 };
 
-
+//Starrts the initial tab for the first play through.
 void SushiBar::setTab(float tab){
     this->tab = tab;
 };
@@ -40,6 +40,7 @@ void SushiBar::setTax(float tax){
     this->tax = tax;
 };
 
+//Adds tht
 void SushiBar::updateTab(float cost){
     this->tab += cost;
     this->tax += (cost*TAX);

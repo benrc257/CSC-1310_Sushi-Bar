@@ -39,11 +39,8 @@ int main() {
         for (int i = 0; i < REROLLS; i++) { // this loop controls the number of rerolls
 
             // spinning message + delay
-            cout << "\nSPINNING";
-            for (int j = 0; j < 3; j++) {
-                delay(1);
-                cout << ".";
-            }
+            cout << "\nSPINNING...";
+            delay(1);
             cout << "\n\n";
 
             // generates random number between 0 and max index of sushi and passes it to getSushi()
@@ -58,6 +55,7 @@ int main() {
                 cout << j+1 << ". \t" << currentSushi->getIngredient(j) << "\n";
             }
 
+            // prints price of sushi
             cout << fixed << setprecision(2) << showpoint;
             cout << "PRICE: $" << currentSushi->getCost() << "\n\n";
 
@@ -65,12 +63,14 @@ int main() {
             cout << "You have " << choicesLeft << " choices and " << 25-(i+1) << " rerolls remaining\n"
                 << "Take this sushi? (Y/N) >> ";
             
+            // validates choice
             while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
                 cout << "\nInvalid choice. Please enter Y or N. >> ";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
 
+            // selects or skips sushi
             if (toupper(choice) == 'Y') {
                 choicesLeft--;
                 cout << "\nYou took \"" << currentSushi->getName() << "\" off the conveyor!\n";
@@ -79,6 +79,7 @@ int main() {
                 cout << "\nYou skipped \"" << currentSushi->getName() << "\".\n";
             }
 
+            //checks how many choices are left
             if (choicesLeft < 1) {
                 cout << "\nYou have 0 choices left. Here is your total!\n";
                 break;
@@ -91,6 +92,7 @@ int main() {
             highScore = sushiBar.getTotal();
         }
 
+        // prints price, tax, and total
         cout << fixed << setprecision(2) << showpoint;
         cout << "PRICE: $" << sushiBar.getTab() << "\n"
             << "TAX:   $" << sushiBar.getTax() << "\n"

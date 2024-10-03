@@ -4,16 +4,6 @@
 
 #include "sushi.h"
 
-//Function to create a new sushi dish
-// DONT TOUCH NOT IN USE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Sushi* createSushi (float cost, int ingredientsSize, string* ingredients, string rarity, string name) {
-    Sushi* sushi = NULL;
-    sushi = new Sushi(cost, ingredientsSize, ingredients, rarity, name);
-    return sushi;
-}
-
-
-
 /*
     Function definitions for the class
 */

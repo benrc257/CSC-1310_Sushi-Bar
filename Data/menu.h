@@ -10,6 +10,7 @@
 const string FILENAME = "menu.csv";
 
 class Menu {
+    //Private Class Variables.
     private:
         ifstream file;
         int numSushi;
@@ -20,6 +21,7 @@ class Menu {
         string** ingredients;
 
     public:
+        //file functions
         void openFile();
         void openFile(string fileName);
         void readFile();
@@ -31,17 +33,15 @@ class Menu {
         string* getNameArray();
         string* getRarityArray();
         string** getIngredientsArray();
-
-        //setters
         
 
-        //constructor
+        
         Menu() { //default constructor
             openFile();
             readFile();
         }
 
-        Menu(string input) { //with filename input
+        Menu(string input) { //overloaded constructor with filename input
             openFile(input);
             readFile();
         };
