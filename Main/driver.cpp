@@ -42,8 +42,6 @@ int main() {
             // spinning message + delay
             cout << "\nSPINNING...";
             delay(1);
-            cout << "\nSPINNING...";
-            delay(1);
             cout << "\n\n";
 
             // generates random number between 0 and max index of sushi and passes it to getSushi()
@@ -68,13 +66,13 @@ int main() {
             cout << "You have " << choicesLeft << " choices and " << REROLLS-(i+1) << " rerolls remaining\n"
                 << "Take " << currentSushi->getName() << " or reroll? (T/R) >> ";
             
-            while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
+            while (!(cin >> choice) || !(toupper(choice.front()) == 'T' || toupper(choice.front()) == 'R')) {
                 cout << "\nInvalid choice. Please enter Y or N. >> ";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
 
-            if (toupper(choice) == 'Y') {
+            if (toupper(choice.front()) == 'T') {
                 choicesLeft--;
                 cout << "\nYou took \"" << currentSushi->getName() << "\" off the conveyor!\n";
                 sushiBar.updateTab(currentSushi->getCost());
