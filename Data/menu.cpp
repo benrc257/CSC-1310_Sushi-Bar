@@ -23,7 +23,6 @@ void Menu::readFile() {
 
     //counts number of sushi by counting new
     line = text;
-    cout << endl << text << endl;
     while (line.find("new") != string::npos) {
         end = line.find("new");
         line = line.substr(end+4);
@@ -50,7 +49,6 @@ void Menu::readFile() {
             line = text.substr(0);
         }
         
-        cout << line << endl; //remove
         readend = line.find(",");
 
         this->sushiname[i] = line.substr(0, readend);
@@ -92,6 +90,7 @@ void Menu::readFile() {
 
         text = text.substr(end+5);
     }
+    
     file.close();
 }
 

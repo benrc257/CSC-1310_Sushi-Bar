@@ -25,7 +25,6 @@ class SushiBar {
         float getTax(); 
         float getTotal(); 
         Sushi* getSushi(int index);
-
         
         //setters
         void setNumSushi(int numSushi);
@@ -48,7 +47,7 @@ class SushiBar {
         ~SushiBar (){ //destructor
             for (int i = 0; i < numSushi ; ++i)
             {
-                delete [] this-> sushi[i];
+                delete [] this->sushi[i];
             } 
             delete [] this->sushi;
         }

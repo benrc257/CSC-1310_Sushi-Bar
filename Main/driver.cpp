@@ -14,7 +14,7 @@ int main() {
     SushiBar sushiBar(menu);
     Sushi* currentSushi = NULL;
     int highScore = 0, choicesLeft;
-    char choice;
+    string choice;
     time_t seed;
 
     //seed random number generator
@@ -35,47 +35,51 @@ int main() {
 
     //game loop
     do {
+        choice = "";
         choicesLeft = CHOICES;
-        for (int i = 0; i < REROLLS; i++) { // this loop controls the number of rerolls
+        for (int i = 0; i < REROLLS && CHOICES > 0;) { // this loop controls the number of rerolls
 
             // spinning message + delay
+            cout << "\nSPINNING...";
+            delay(1);
             cout << "\nSPINNING...";
             delay(1);
             cout << "\n\n";
 
             // generates random number between 0 and max index of sushi and passes it to getSushi()
             currentSushi = sushiBar.getSushi(randnum(sushiBar.getNumSushi()-1));
-
+            
             // prints sushi to screen
             cout << currentSushi->getRarity() << "\n"
                 << currentSushi->getName() << "\n"
-                << "INGREDIENTS:\n";
+                << "INGREDIENTS: "
+                << currentSushi->getIngredient(0);
 
-            for (int j = 0; j < currentSushi->getIngredientsSize(); j++) { // prints each ingredient
-                cout << j+1 << ". \t" << currentSushi->getIngredient(j) << "\n";
+            for (int j = 1; j < currentSushi->getIngredientsSize(); j++) { // prints each ingredient
+                cout << "," << currentSushi->getIngredient(j);
             }
+            cout << "\n";
 
             // prints price of sushi
             cout << fixed << setprecision(2) << showpoint;
             cout << "PRICE: $" << currentSushi->getCost() << "\n\n";
 
             // asks the user if they would like to take the sushi
-            cout << "You have " << choicesLeft << " choices and " << 25-(i+1) << " rerolls remaining\n"
-                << "Take this sushi? (Y/N) >> ";
+            cout << "You have " << choicesLeft << " choices and " << REROLLS-(i+1) << " rerolls remaining\n"
+                << "Take " << currentSushi->getName() << " or reroll? (T/R) >> ";
             
-            // validates choice
             while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
                 cout << "\nInvalid choice. Please enter Y or N. >> ";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
 
-            // selects or skips sushi
             if (toupper(choice) == 'Y') {
                 choicesLeft--;
                 cout << "\nYou took \"" << currentSushi->getName() << "\" off the conveyor!\n";
                 sushiBar.updateTab(currentSushi->getCost());
             } else {
+                i++;
                 cout << "\nYou skipped \"" << currentSushi->getName() << "\".\n";
             }
 
@@ -100,13 +104,13 @@ int main() {
         
         // asking the user if they would like to play again
         cout << "\nPlay again? (Y/N) >> ";
-        while (!(cin >> choice) || !(toupper(choice) == 'N' || toupper(choice) == 'Y')) {
+        while (!(cin >> choice) || !(toupper(choice.front()) == 'N' || toupper(choice.front()) == 'Y')) {
             cout << "\nInvalid choice. Please enter Y or N. >> ";
             cin.clear();
             cin.ignore(10000, '\n');
         }
 
-    } while (choice == 'Y'); // game ends if the user selects N
+    } while (toupper(choice.front()) == 'Y'); // game ends if the user selects N
 
     return 0;
 }
